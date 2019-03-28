@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  
+  </head>
+
+  <body>
+ 
+
+    <div id="root">
+      <div
+        class="header-container gradient-chromium shade-bottom"
+      >
+        <div class="header-logo-container">
+          <img class="logo" src="../src/img/logo.png" />
+        </div>
+        <div class="column-container">
+          <div class="header-title-container">
+            <h1 class="header-title">ART::Hdr</h1>
+          </div>
+          <nav class="header-nav">
+            <ul id="header-nav-ul">
+              <li id="li-front" onclick="onNavClicked(this)" class="active">front</li>
+              <li id="li-login" onclick="onNavClicked(this)">login</li>
+            </ul>
+          </nav>
+        </div comment="column-container">
+        <div class="header-overflow"><p>X</p></div>
+      </div comment="header-container closing tag">
+
+      <div class="user-article-container">
+        
+        <div class="user-article-grid">
+          <div class="ua-item" uid="1" />
+          <div class="ua-item" uid="2" />
+          <div class="ua-item" uid="3" />
+          <div class="ua-item" uid="4" />                          
+        </div>
+
+      </div>
+    </div comment="root div closing tag">
+    <script>
+      function onNavClicked(elem) {
+  console.log("element id: " + elem.id);
+  if (elem.className.includes("active")) return;
+  var listItems = document
+    .getElementById("header-nav-ul")
+    .getElementsByTagName("li");
+
+
+  console.log("list item amt: " + listItems.length);  
+  var elemId = elem.id;
+  console.log("Element id: " + elemId);
+
+  for (var i = 0, len = listItems.length; i < len; i++) {
+
+    console.log("Iterating index " + i + ", list elem id " + listItems[i].id);
+    console.log("List item class: " + listItems[i].className);
+    if (listItems[i].className.includes("active")) {
+      console.log("Active found, changed to none - id: " + elemId);
+      //elem.className = "";
+      document
+      .getElementById("header-nav-ul")
+      .getElementsByTagName("li")[i].className = "";
+    }
+    if (listItems[i].id === elemId) {
+      //elem.className = "active";
+      console.log("Clicked element found, set active - id: " + elemId);
+      document
+      .getElementById("header-nav-ul")
+      .getElementsByTagName("li")[i].className = "active";
+    }
+  }
+}
+
+    </script>     
+  </body>
+
+</html>
